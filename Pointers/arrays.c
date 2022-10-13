@@ -14,7 +14,6 @@ long long sum(const int *a, int length)
 
 void print_array(int a[], int length)
 {
-
     // вывод элементов массива
     for (size_t i = 0; i < length; i++)
         printf("%d ", a[i]);
@@ -24,7 +23,6 @@ void print_array(int a[], int length)
 
 void read_array(int *array, int length)
 {
-
     // ввод элементов массива
     for (size_t i = 0; i < length; i++)
     {
