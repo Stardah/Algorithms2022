@@ -3,15 +3,12 @@
 #include <wchar.h>
 #include <string.h>
 
-void copy_string(char *src, char *dst, int length)
+void copy_string(char *dst, const char *src, int length)
 {
-    char dst_copy[length];
     for (size_t i = 0; i < length; i++)
     {
         dst[i] = *(src++);
     }
-
-    dst = dst_copy;
 }
 
 int main(void)
@@ -21,15 +18,19 @@ int main(void)
     wchar_t s2[] = L"unicode string";
     char s3[10] = "ok"; // s[0]='o', s[1]='k', s[2]= '\0'
      
+    char *wrong = "wrong";
+    // wrong[0] = "i"; // так не работает  
+
     wprintf(L"%ls\n", s2);
 
     // Длина строки
     const int length = sizeof(s3) / sizeof(char);
 
     // Копирование
-    char dst[length]; // это const char *
-    copy_string(s3, dst, length);
+    char *dst; // это const char *
+    copy_string(dst, s3, length);
 
+    *dst = 'c';
     // Считывание строки
     char str[5];
 
