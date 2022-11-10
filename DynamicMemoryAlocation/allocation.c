@@ -14,9 +14,8 @@ int main(void)
     // По возможности realloc выделит дополнительную память там же
     // иначе выделит память в новой области кучи
     long long *p = realloc(array, 200);
-    if (NULL)
-
-    array = p;
+    if (p != NULL)
+        array = p;
     
     free(array); // ~ realloc(_Block, 0);
     free(array_0);
