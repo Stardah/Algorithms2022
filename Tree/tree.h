@@ -3,11 +3,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-typedef struct tree
-{
-    struct tree_node *root;
-} tree;
-
 typedef struct tree_node
 {
     int value;

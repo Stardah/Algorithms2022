@@ -141,27 +141,6 @@ void tree_free(tree_node *t)
     free(t);
 }
 
-
-void print_acc(int value, int acc)
-{
-    for (size_t i = 0; i < acc; i++)
-    {
-        printf("%c", '-');
-    }
-    printf("%d\n", value);
-}
-
-void print_tree(const tree_node *t, int acc)
-{
-    if (t != NULL)
-    {
-        // printf("%d\n", t->value);
-        print_acc(t->value, acc);
-        print_tree(t->left, acc + 1);
-        print_tree(t->right, acc + 1);
-    }
-}
-
 int main(int argc, char const *argv[])
 {
     tree_node *root = tree_init_node(10);

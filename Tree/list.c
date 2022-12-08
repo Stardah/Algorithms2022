@@ -2,9 +2,9 @@
 
 #include <stdlib.h>
 
-int_list list_init()
+tree_list list_init()
 {
-    int_list list = {
+    tree_list list = {
         .front = NULL,
         .back = NULL};
     return list;
@@ -19,7 +19,7 @@ list_node *init_node(tree_node *value)
     return new_node;
 }
 
-void list_push_back(int_list *list, tree_node *value)
+void list_push_back(tree_list *list, tree_node *value)
 {
     list_node *node = init_node(value);
     if (list->back == NULL && list->front == NULL)
@@ -34,7 +34,7 @@ void list_push_back(int_list *list, tree_node *value)
     list->back = node;
 }
 
-void list_push_front(int_list *list, tree_node *value)
+void list_push_front(tree_list *list, tree_node *value)
 {
     list_node *node = init_node(value);
     if (list->back == NULL && list->front == NULL)
@@ -49,7 +49,7 @@ void list_push_front(int_list *list, tree_node *value)
     list->front = node;
 }
 
-void list_pop_back(int_list *list)
+void list_pop_back(tree_list *list)
 {
     if (list->back == NULL)
     {
@@ -71,7 +71,7 @@ void list_pop_back(int_list *list)
     }
 }
 
-void list_pop_front(int_list *list)
+void list_pop_front(tree_list *list)
 {
     if (list->front == NULL)
     {
@@ -93,12 +93,12 @@ void list_pop_front(int_list *list)
     }
 }
 
-bool list_is_empty(int_list *list)
+bool list_is_empty(tree_list *list)
 {
     return (list->back == NULL) && (list->front == NULL);
 }
 
-void list_free(int_list *list)
+void list_free(tree_list *list)
 {
     list_node *ptr = list->front;
     while (ptr != NULL)
