@@ -10,7 +10,7 @@ int_list list_init()
     return list;
 }
 
-list_node *init_node(int value)
+list_node *init_node(tree_node *value)
 {
     list_node *new_node = malloc(sizeof(list_node));
     new_node->next = NULL;
@@ -19,7 +19,7 @@ list_node *init_node(int value)
     return new_node;
 }
 
-void list_push_back(int_list *list, int value)
+void list_push_back(int_list *list, tree_node *value)
 {
     list_node *node = init_node(value);
     if (list->back == NULL && list->front == NULL)
@@ -34,7 +34,7 @@ void list_push_back(int_list *list, int value)
     list->back = node;
 }
 
-void list_push_front(int_list *list, int value)
+void list_push_front(int_list *list, tree_node *value)
 {
     list_node *node = init_node(value);
     if (list->back == NULL && list->front == NULL)
@@ -100,7 +100,7 @@ bool list_is_empty(int_list *list)
 
 void list_free(int_list *list)
 {
-    list_node *ptr = list->front->next;
+    list_node *ptr = list->front;
     while (ptr != NULL)
     {
         list_node *node = ptr;
